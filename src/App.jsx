@@ -1,32 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./components/Buttons/Button";
 
 function App() {
-  const handleButtonOneClick = () => {
-    alert("Button One clicked!");
-  };
+  const [name, setName] = useState("");
+  const [submittedName, setSubmittedName] = useState("");
 
-  const handleButtonTwoClick = () => {
-    alert("Button Two clicked!");
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmittedName(name);
   };
 
   return (
- 
-      <div className="flex gap-5 justify-center">
-        <Button
-          onClick={handleButtonOneClick}
-          text='Click Me'
-          className=' shadow-lg'
+    <div className="flex flex-col gap-5 justify-center items-center">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-5">
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter your name"
+          className="p-2 border border-gray-300 rounded"
         />
-   
-      
         <Button
-          onClick={handleButtonTwoClick}
-          text='Clic Me Two'
-          className=' shadow-lg bg-red-800'
+          onClick={handleSubmit}
+          text="Submit"
+          className="shadow-lg bg-red-500 text-white"
         />
-      </div>
-   
+      </form>
+
+      {submittedName && <p className="text-lg">Hello, {submittedName}!</p>}
+
+    </div>
   );
 }
 
