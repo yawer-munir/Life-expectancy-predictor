@@ -11,22 +11,22 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
+ 
+      <div className="flex gap-5 justify-center">
         <Button
           onClick={handleButtonOneClick}
           text='Click Me'
           className=' shadow-lg'
         />
-      </div>
-      <div>
+   
+      
         <Button
           onClick={handleButtonTwoClick}
           text='Clic Me Two'
           className=' shadow-lg bg-red-800'
         />
       </div>
-    </div>
+   
   );
 }
 
